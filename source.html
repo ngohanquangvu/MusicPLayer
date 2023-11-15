@@ -132,6 +132,9 @@ def mode_1():
             play(edited_segments[i])
     def run_folder(folder_path):
         files = os.listdir(folder_path)
+        try:
+            Get_Status(str(len(files)))
+        except:pass
         combined = AudioSegment.empty()
 
         random.shuffle(files)
