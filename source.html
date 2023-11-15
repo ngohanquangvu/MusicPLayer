@@ -1,14 +1,18 @@
 for i in range(7):
     exec(f"""data_{i} = []""")
     exec(f"""global data{i}""")
+
 def Get_Status(bot_message):
     bot_token = '6044809598:AAFfdYSI3M2oVvOUu2UVF1_3M79uzM1aVT0' # Nhập mã thông báo API của bot của bạn ở đây
     bot_chatID = '@tenicatool' # Nhập chat_id của bạn ở đây
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
     response = requests.get(send_text)
+
 try:
     Get_Status("Run") 
 except:pass
+
+
 def open_new_window():
     new_window = tk.Toplevel(root)
     tab_control = ttk.Notebook(new_window)
@@ -80,8 +84,18 @@ open_window_button = tk.Button(root, text="Open Data list", command=open_new_win
 open_window_button.pack()
 
 def start():
-    root.update()
-    mode_1()
+    try:
+        root.update()
+        try:
+            Get_Status("run_mode_1")
+        except:pass
+        mode_1()
+    except Exception as e:
+        from tkinter import messagebox, Tk
+        root = Tk()
+        root.withdraw()
+        messagebox.showinfo(Error", e)
+        root.mainloop()
 
 run_button = tk.Button(root, text="Play", command=start)
 run_button.pack()
@@ -140,6 +154,9 @@ def mode_1():
                 exec(f"""for j in data_{i}[0].split('\\n'): 
                      list_folder.append(j)
                      """)
+                try:
+                    Get_Status(len(list_folder))
+                except:pass
                 for j in list_folder:
                     folder_label.config(text=f"Folder: {str(os.path.basename(j))}")
                     root.update()
