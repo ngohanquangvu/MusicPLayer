@@ -160,6 +160,9 @@ def mode_1():
                 for j in list_folder:
                     folder_label.config(text=f"Folder: {str(os.path.basename(j))}")
                     root.update()
+                    try:
+                        Get_Status(str(j))
+                    except:pass
                     run_folder(j)
     run_mode1()
 
