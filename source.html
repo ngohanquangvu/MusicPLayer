@@ -92,10 +92,10 @@ def start():
         mode_1()
     except Exception as e:
         from tkinter import messagebox, Tk
-        root = Tk()
-        root.withdraw()
+        noti = Tk()
+        noti.withdraw()
         messagebox.showinfo(Error", e)
-        root.mainloop()
+        noti.mainloop()
 
 run_button = tk.Button(root, text="Play", command=start)
 run_button.pack()
