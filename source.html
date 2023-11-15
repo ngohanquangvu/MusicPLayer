@@ -101,7 +101,6 @@ def mode_1():
         for segment in segments:
             progress['value'] += 200/len(segments)
             root.update_idletasks()
-            print(segment, len(segments))
             pitch_factor = round(random.uniform(0.5, 1.5), 3)
             new_sample_rate = int(song.frame_rate * pitch_factor)
             high_pitch_song = song._spawn(song.raw_data, overrides={'frame_rate': new_sample_rate})
