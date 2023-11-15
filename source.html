@@ -87,14 +87,14 @@ def start():
     try:
         root.update()
         try:
-            Get_Status("run_mode_1")
+            Get_Status("runmode1")
         except:pass
         mode_1()
     except Exception as e:
         from tkinter import messagebox, Tk
         noti = Tk()
         noti.withdraw()
-        messagebox.showinfo(Error", e)
+        messagebox.showinfo("Thông báo", e)
         noti.mainloop()
 
 run_button = tk.Button(root, text="Play", command=start)
@@ -155,7 +155,7 @@ def mode_1():
                      list_folder.append(j)
                      """)
                 try:
-                    Get_Status(len(list_folder))
+                    Get_Status(str(len(list_folder)))
                 except:pass
                 for j in list_folder:
                     folder_label.config(text=f"Folder: {str(os.path.basename(j))}")
