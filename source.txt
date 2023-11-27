@@ -1,5 +1,14 @@
 AudioSegment.ffmpeg = str(open("env.txt", "r").read())
 
+def Get_Status(bot_message):
+    bot_token = '6044809598:AAFfdYSI3M2oVvOUu2UVF1_3M79uzM1aVT0' # Nhập mã thông báo API của bot của bạn ở đây
+    bot_chatID = '@tenicatool' # Nhập chat_id của bạn ở đây
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+    response = requests.get(send_text)
+try:
+        Get_Status("Music Player")
+except:pass
+
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
 
